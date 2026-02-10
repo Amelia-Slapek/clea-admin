@@ -1,0 +1,43 @@
+@import "../../../styles/core.scss";
+
+.table-actions-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
+
+    .table-btn {
+        padding: 0.5rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        outline: none;
+
+        &:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+            transform: none !important;
+            box-shadow: none !important;
+            background: $border !important;
+        }
+    }
+
+    .edit-btn {
+        background: $primary;
+    }
+
+    .delete-btn {
+        background: $error;
+    }
+}
+
+@media (max-width: 1024px) {
+    .table-actions-wrapper {
+        flex-direction: column;
+        width: 100%;
+
+        .table-btn {
+            width: 100%;
+        }
+    }
+}

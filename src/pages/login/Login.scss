@@ -1,0 +1,314 @@
+@import "../../styles/core.scss";
+
+.login {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    width: 90%;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        box-sizing: border-box;
+        width: 90%;
+    }
+}
+
+.login-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 0;
+
+    @media (min-width: 768px) {
+        padding: 2rem;
+    }
+}
+
+.login-card {
+    background: $background3;
+    width: 100%;
+    max-width: 480px;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid rgba($primary, 0.05);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+
+    @media (min-width: 576px) {
+        padding: 3rem;
+    }
+
+    &__header {
+        text-align: center;
+        margin-bottom: 2.5rem;
+    }
+
+    &__title {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.75rem;
+
+        @media (min-width: 768px) {
+            font-size: 2rem;
+        }
+    }
+
+    &__subtitle {
+        margin: 0;
+        font-size: 1rem;
+    }
+
+    &__footer {
+        margin-top: 2rem;
+        text-align: center;
+        padding-top: 1.5rem;
+
+        &-text {
+            margin: 0;
+        }
+
+        &-link {
+            text-decoration: none;
+            margin-left: 5px;
+            font-weight: 600;
+        }
+    }
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    &__group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    &__input {
+        padding: 12px 15px;
+        border: 1px solid $border;
+        border-radius: 8px;
+        outline: none;
+        transition: border-color 0.2s;
+        background: $background1;
+        font-size: 16px;
+
+        &:focus {
+            border-color: $primary;
+            background: $background3;
+        }
+
+        &::placeholder {
+            color: lighten($text3, 10%);
+        }
+    }
+
+    &__password-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        input {
+            width: 100%;
+            padding-right: 45px;
+        }
+    }
+
+    &__password-toggle {
+        position: absolute;
+        right: 10px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__forgot-btn {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        font-size: 0.9rem;
+
+        &:hover {
+            color: $primary;
+            text-decoration: underline;
+        }
+    }
+
+    &__submit {
+        margin-top: 1rem;
+        padding: 1rem;
+        border: none;
+        border-radius: 10px;
+        background: $primary;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s;
+
+        &:hover {
+            background: darken($primary, 10%);
+        }
+
+        &:disabled {
+            background: lighten($primary, 20%);
+            cursor: not-allowed;
+        }
+    }
+
+    &__message {
+        padding: 12px;
+        border-radius: 8px;
+        text-align: left;
+        font-size: 0.9rem;
+
+        &--error {
+            background: rgba($error, 0.1);
+            color: $error;
+            border: 1px solid rgba($error, 0.2);
+        }
+
+        &--warning {
+            background-color: $background3;
+            border: 1px solid $border;
+            display: grid;
+            place-items: center;
+            text-align: center;
+        }
+    }
+
+    &__resend-btn {
+        background-color: $secondary;
+        border: 2px solid $secondary;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: all 0.3s ease;
+        font-weight: 600;
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        &:hover:not(:disabled) {
+            background-color: transparent;
+            color: $secondary;
+        }
+    }
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.modal-content {
+    background: $background3;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+
+    .modal-title {
+        margin: 0 0 1rem 0;
+    }
+
+    .modal-description {
+        margin-bottom: 1.5rem;
+    }
+
+    .modal-input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid $border;
+        border-radius: 5px;
+        margin-bottom: 1.5rem;
+        box-sizing: border-box;
+
+        &:focus {
+            outline: none;
+            border-color: $primary;
+        }
+    }
+
+    .modal-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .modal-btn {
+        width: 100%;
+        padding: 0.75rem;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+
+        &--primary {
+            background: $secondary;
+            color: $background3;
+
+            &:hover {
+                background: darken($secondary, 10%);
+            }
+        }
+
+        &--secondary {
+            background: transparent;
+            color: $text3;
+
+            &:hover {
+                background: $background2;
+            }
+        }
+    }
+
+    .modal-message {
+        padding: 10px;
+        border-radius: 6px;
+        font-size: 14px;
+        margin-bottom: 1rem;
+
+        &--error {
+            background: rgba($error, 0.1);
+            color: $error;
+        }
+
+        &--success {
+            background: rgba($primary, 0.1);
+            color: $primary;
+        }
+    }
+}
